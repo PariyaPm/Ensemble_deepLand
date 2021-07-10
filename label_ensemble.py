@@ -31,22 +31,22 @@ from sklearn.ensemble import VotingClassifier
 
 os.chdir('../Data')
 
-# w1_train = np.load('y_predictdeepLandF2_train.npy')
-# w2_train = np.load('y_predictdeepLandF3_train.npy')
+w1_train = np.load('y_predictdeepLandF2_train.npy')
+w2_train = np.load('y_predictdeepLandF3_train.npy')
 w3_train = np.load('y_class3DdeepLand_train.npy')
 w4_train = np.load('y_classdeepLand3Df_train.npy')
 w5_train = np.load('y_class3DdeepLandv_train.npy')
-# w6_train = np.load('y_predictUnet_train.npy')
+w6_train = np.load('y_predictUnet_train.npy')
 w7_train = np.load('y_classdeepLandS_train.npy')
 w8_train = np.load('y_classdeepLandU_train.npy')
 w9_train = np.load('y_classdeepLandF_train.npy')
 
-# w1 = np.load('y_predictdeepLandF2.npy')
-# w2 = np.load('y_predictdeepLandF3.npy')
+w1 = np.load('y_predictdeepLandF2.npy')
+w2 = np.load('y_predictdeepLandF3.npy')
 w3 = np.load('y_class3DdeepLand.npy')
 w4 = np.load('y_classdeepLand3Df.npy')
 w5 = np.load('y_class3DdeepLandv.npy')
-# w6 = np.load('y_predictUne.npy')
+w6 = np.load('y_predictUne.npy')
 w7 = np.load('y_classdeepLandS.npy')
 w8 = np.load('y_classdeepLandU.npy')
 w9 = np.load('y_classdeepLandF.npy')
@@ -72,23 +72,23 @@ range_ind = [x for x in range_ind if x not in exc_ind]
 np.random.shuffle(range_ind)
 
 data_train = np.column_stack([
-    # w1_train.flatten(),
-    # w2_train.flatten(),
+    w1_train.flatten(),
+    w2_train.flatten(),
     w3_train.flatten(),
     w4_train.flatten(),
     w5_train.flatten(),
-    # w6_train.flatten(),
+    w6_train.flatten(),
     w7_train.flatten(),
     w8_train.flatten(),
     w9_train.flatten()])
 
 dat_test = np.column_stack([
-    # w1.flatten(),
-    # w2.flatten(),
+    w1.flatten(),
+    w2.flatten(),
     w3.flatten(),
     w4.flatten(),
     w5.flatten(),
-    # w6.flatten(),
+    w6.flatten(),
     w7.flatten(),
     w8.flatten(),
     w9.flatten()])
@@ -101,13 +101,6 @@ xTrainValid = data_train
 yTrainValid = y_train
 data_test = dat_test
 label_test = y_test
-
-
-# data_train = dat_train[:int(len(y_train)*.66)]
-# label_train = y_train[:int(len(y_train)*.66)]
-# data_valid = np.load('data_val.npy')
-# label_valid = np.load('label_val.npy')
-
 
 def auc(inpu1, inpu2):
     TP = np.sum(hit(inpu1, inpu2))
